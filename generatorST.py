@@ -5,7 +5,7 @@ from PIL import Image
 
 
 def generator(name_pack):
-    path_pack = f"source\packs\{name_pack}"
+    path_pack = f"source\\packs\\{name_pack}"
 
     list_smiles = []
     for item in os.listdir(path_pack +"\\"+ "smiles"):
@@ -25,7 +25,7 @@ def generator(name_pack):
     return rn_sml,rn_eye,rn_bod,path_pack
 
 def stiker(name,id_mb):
-    (rn_sml,rn_eye,rn_bod,path_pack) = generator(name)
+    (rn_sml,rn_eye,rn_bod,path_pack) = generator(f"{name}")
 
     sml = Image.open(path_pack+"\\"+"smiles"+"\\"+rn_sml)
     bod = Image.open(path_pack+"\\"+"bodys"+"\\"+rn_bod)
@@ -37,6 +37,7 @@ def stiker(name,id_mb):
     bod.save(path_pack+"\\"+"trash"+"\\"+ str(id_mb) +".webp")
     print("[INFO] Creator fin")
     return path_pack+"\\"+"trash"+"\\"+str(id_mb) + ".webp"
+
 
     
 
