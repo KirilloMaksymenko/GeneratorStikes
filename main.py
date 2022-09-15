@@ -14,10 +14,8 @@ def send_welcome(message):
 @bot.message_handler(commands=['creat'])
 def send_welcome(message):
     param = str(message.text).replace("/creat","").replace(" ","")
-    if param == "":
-        path = stiker("default",message.chat.id)
-    else:
-        path = stiker(f"{message.chat.id}\\{param}",message.chat.id)
+
+    path = stiker("default",message.chat.id) if param=="" else stiker(f"{message.chat.id}\\{param}",message.chat.id)
     
     bot.send_sticker(message.chat.id, open(path, 'rb'))
     os.remove(path)
